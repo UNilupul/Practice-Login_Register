@@ -97,7 +97,8 @@ video {
   background: var(--paleGreen);
 }
 
-.loginPage {
+.loginPage,
+.registerPage {
   height: 100vh;
   width: 100%;
   margin: auto;
@@ -105,7 +106,8 @@ video {
   overflow: hidden;
   box-shadow: 0 7px 50px rgb(214, 223, 213);
 }
-.loginPage .container {
+.loginPage .container,
+.registerPage .container {
   height: 75vh;
   width: 60%;
   margin: auto;
@@ -113,7 +115,8 @@ video {
   border-radius: 10px;
   background: hsl(0, 0%, 91%);
 }
-.loginPage .container .videoDiv {
+.loginPage .container .videoDiv,
+.registerPage .container .videoDiv {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -128,10 +131,13 @@ video {
   overflow: hidden;
 }
 .loginPage .container .videoDiv video,
-.loginPage .container .videoDiv .footerDiv {
+.loginPage .container .videoDiv .footerDiv,
+.registerPage .container .videoDiv video,
+.registerPage .container .videoDiv .footerDiv {
   position: absolute;
 }
-.loginPage .container .videoDiv video {
+.loginPage .container .videoDiv video,
+.registerPage .container .videoDiv video {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -141,20 +147,24 @@ video {
   left: 0;
   right: 0;
 }
-.loginPage .container .videoDiv .textDiv {
+.loginPage .container .videoDiv .textDiv,
+.registerPage .container .videoDiv .textDiv {
   position: relative;
 }
-.loginPage .container .videoDiv .textDiv .title {
+.loginPage .container .videoDiv .textDiv .title,
+.registerPage .container .videoDiv .textDiv .title {
   color: var(--whiteColor);
   font-size: 35px;
   font-weight: 800;
 }
-.loginPage .container .videoDiv .textDiv p {
+.loginPage .container .videoDiv .textDiv p,
+.registerPage .container .videoDiv .textDiv p {
   color: var(--whiteColor);
   padding: 1rem;
   font-weight: 400;
 }
-.loginPage .container .videoDiv .footerDiv {
+.loginPage .container .videoDiv .footerDiv,
+.registerPage .container .videoDiv .footerDiv {
   bottom: 10px;
   padding: 0 1rem;
   height: 60px;
@@ -166,10 +176,12 @@ video {
           backdrop-filter: blur(1px);
   border-radius: 10px;
 }
-.loginPage .container .videoDiv .footerDiv .text {
+.loginPage .container .videoDiv .footerDiv .text,
+.registerPage .container .videoDiv .footerDiv .text {
   color: var(--whiteColor);
 }
-.loginPage .container .videoDiv .footerDiv .btn {
+.loginPage .container .videoDiv .footerDiv .btn,
+.registerPage .container .videoDiv .footerDiv .btn {
   background: var(--whiteColor);
   color: var(--primaryColor);
   padding: 0.8rem 1.5rem;
@@ -177,56 +189,67 @@ video {
   font-weight: 400;
   transition: 0.3s ease;
 }
-.loginPage .container .videoDiv .footerDiv .btn:hover {
+.loginPage .container .videoDiv .footerDiv .btn:hover,
+.registerPage .container .videoDiv .footerDiv .btn:hover {
   background: var(--hoverColor);
   color: var(--blackColor);
 }
-.loginPage .container .formDiv {
+.loginPage .container .formDiv,
+.registerPage .container .formDiv {
   flex-basis: 50%;
   flex-direction: column;
   margin: auto;
   gap: 1.5rem;
   transform: translateY(-1rem);
 }
-.loginPage .container .formDiv .headerDiv {
+.loginPage .container .formDiv .headerDiv,
+.registerPage .container .formDiv .headerDiv {
   text-align: center;
   padding: 1.5rem 0;
 }
-.loginPage .container .formDiv img {
+.loginPage .container .formDiv img,
+.registerPage .container .formDiv img {
   width: 100px;
   padding-bottom: 0.5rem;
 }
-.loginPage .container .formDiv h3 {
+.loginPage .container .formDiv h3,
+.registerPage .container .formDiv h3 {
   font-size: 25px;
   color: var(--blackColor);
   font-weight: 600;
 }
-.loginPage .container .form {
+.loginPage .container .form,
+.registerPage .container .form {
   gap: 1rem;
 }
-.loginPage .container .form .inputDiv .icon {
+.loginPage .container .form .inputDiv .icon,
+.registerPage .container .form .inputDiv .icon {
   color: var(--greyText);
 }
-.loginPage .container .form .inputDiv input {
+.loginPage .container .form .inputDiv input,
+.registerPage .container .form .inputDiv input {
   background: none;
   border: none;
   outline: none;
   width: 200px;
 }
-.loginPage .container .form .inputDiv label {
+.loginPage .container .form .inputDiv label,
+.registerPage .container .form .inputDiv label {
   color: var(--blackColor);
   font-weight: 400;
   font-size: 14px;
   padding: 0.5rem 0;
   display: block;
 }
-.loginPage .container .form .inputDiv .input {
+.loginPage .container .form .inputDiv .input,
+.registerPage .container .form .inputDiv .input {
   gap: 0.5rem;
   padding: 1rem;
   background: var(--inputColor);
   border-radius: 10px;
 }
-.loginPage .container .form .btn {
+.loginPage .container .form .btn,
+.registerPage .container .form .btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -240,27 +263,124 @@ video {
   gap: 0.5rem;
   transition: 0.3s ease;
 }
-.loginPage .container .form .btn .icon {
+.loginPage .container .form .btn .icon,
+.registerPage .container .form .btn .icon {
   font-size: 25px;
   transition: 0.3s ease;
 }
-.loginPage .container .form .btn:hover {
+.loginPage .container .form .btn:hover,
+.registerPage .container .form .btn:hover {
   background: var(--hoverColor);
   color: var(--blackColor);
 }
-.loginPage .container .form .btn:hover .icon {
+.loginPage .container .form .btn:hover .icon,
+.registerPage .container .form .btn:hover .icon {
   color: var(--blackColor);
   transform: translateX(5px);
 }
-.loginPage .container .form .forgotPassword {
+.loginPage .container .form .forgotPassword,
+.registerPage .container .form .forgotPassword {
   font-size: 13px;
   color: var(--blackColor);
   opacity: 0.7;
   text-align: center;
 }
-.loginPage .container .form .forgotPassword a {
+.loginPage .container .form .forgotPassword a,
+.registerPage .container .form .forgotPassword a {
   text-decoration: underline;
   cursor: pointer;
   padding-left: 5px;
   opacity: 1;
+}
+
+@media screen and (max-width: 602px) {
+  .loginPage .container,
+  .registerPage .container {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  .loginPage .container .videoDiv,
+  .registerPage .container .videoDiv {
+    width: 100%;
+  }
+  .loginPage .container .videoDiv .title,
+  .registerPage .container .videoDiv .title {
+    font-size: 20px;
+  }
+  .loginPage .container .videoDiv p,
+  .registerPage .container .videoDiv p {
+    padding: 1rem;
+  }
+  .loginPage .container .footerDiv .text,
+  .registerPage .container .footerDiv .text {
+    font-size: 12px;
+  }
+  .loginPage .container .footerDiv .btn,
+  .registerPage .container .footerDiv .btn {
+    padding: 0.4rem 1.5rem;
+  }
+  .loginPage .formDiv,
+  .registerPage .formDiv {
+    gap: 1rem;
+    transform: translateY(-0.5rem);
+  }
+  .loginPage .formDiv .headerDiv,
+  .registerPage .formDiv .headerDiv {
+    padding: 1rem 0;
+  }
+  .loginPage .formDiv .headerDiv img,
+  .registerPage .formDiv .headerDiv img {
+    width: 40px;
+  }
+  .loginPage .formDiv .headerDiv h3,
+  .registerPage .formDiv .headerDiv h3 {
+    font-size: 20px;
+  }
+  .loginPage .formDiv .form,
+  .registerPage .formDiv .form {
+    gap: 0.5rem;
+  }
+  .loginPage .formDiv .form .inputDiv input,
+  .registerPage .formDiv .form .inputDiv input {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 678px) {
+  .loginPage .container .videoDiv .title,
+  .registerPage .container .videoDiv .title {
+    font-size: 25px;
+  }
+  .loginPage .container .videoDiv p,
+  .registerPage .container .videoDiv p {
+    padding: 1rem;
+  }
+  .loginPage .container .footerDiv .text,
+  .registerPage .container .footerDiv .text {
+    font-size: 12px;
+  }
+  .loginPage .container .footerDiv .btn,
+  .registerPage .container .footerDiv .btn {
+    padding: 0.8rem 1.5rem;
+  }
+  .loginPage .formDiv .headerDiv,
+  .registerPage .formDiv .headerDiv {
+    padding: 1.5rem 0;
+  }
+  .loginPage .formDiv .headerDiv h3,
+  .registerPage .formDiv .headerDiv h3 {
+    font-size: 20px;
+  }
+  .loginPage .formDiv .form .inputDiv input,
+  .registerPage .formDiv .form .inputDiv input {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+@media screen and (max-width: 927px) {
+  .loginPage .container,
+  .registerPage .container {
+    width: 85%;
+  }
 }/*# sourceMappingURL=app.css.map */
