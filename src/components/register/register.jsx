@@ -12,12 +12,12 @@ import { AiOutlineSwapRight } from "react-icons/ai";
 import { MdMarkEmailRead } from "react-icons/md";
 
 const Register = () => {
-
+    // useState to hold inputs
     const [email, setEmail] = useState('');
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
-
+    // onCLick let us get what user has input
     const createUser = () => {
         event.preventDefault();
 

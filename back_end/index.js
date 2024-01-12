@@ -9,7 +9,7 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors())
 
-app.listen (3002, () => {
+app.listen(3002, () => {
     console.log('Server is running port 3002')
 })
 
@@ -21,12 +21,12 @@ const db = mysql.createConnection({
     database: 'plan',
 })
 
-db.connect(function(err) {
+db.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
-  });
+});
 
-app.post ('/register', (req, res) => {
+app.post('/register', (req, res) => {
     // get variables from the form
     const sentEmail = req.body.Email;
     const sentUsername = req.body.Username;
@@ -39,11 +39,33 @@ app.post ('/register', (req, res) => {
 
     //Query to execute the SQL statement started above
     db.query(SQL, Values, (err, results) => {
-        if(err) {
+        if (err) {
             res.send(err);
         } else {
             console.log('User created successfully!');
-            res.send({message: 'User Added'});
+            res.send({ message: 'User Added' });
         }
-    }) 
+    })
+})
+
+app.post('/', (req, res) => {
+    const sentLoginUsername = req.body.LoginUsername;
+    const sentLoginPassword = req.body.LoginPassword;
+
+    // lets create SQL statement to inser the user to the database table Users
+    const SQL = 'SELECT * FROM user WHERE username = ? && password = ?';
+
+    const Values = [sentLoginUsername, sentLoginPassword];
+
+    db.query(SQL, Values, (err, results) => {
+        if (err) {
+            res.send({error: err});
+        } 
+        if (results.length > 0) {
+            res.send(results);
+        }
+        else {
+            res.send({message: `Creadentials dose not match!`});
+        }
+    })
 })
