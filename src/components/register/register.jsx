@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './register.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import video from '../../loginAssets/video.mp4';
@@ -16,10 +16,11 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const navigateTo = useNavigate();
 
     // onCLick let us get what user has input
-    const createUser = () => {
-        event.preventDefault();
+    const createUser = (e) => {
+        e.preventDefault();
 
         axios.post('http://localhost:3002/register', {
             // create variables to sent through the server
@@ -28,7 +29,13 @@ const Register = () => {
             Password: password,
         })
             .then(() => {
-                console.log('User has been created!');
+                // redirect to login page
+                navigateTo('/');
+
+                //clear fileds
+                setEmail('');
+                setPassword('');
+                setUserName('');
             })
             .then(response => {
                 console.log('Server response:', response.data);

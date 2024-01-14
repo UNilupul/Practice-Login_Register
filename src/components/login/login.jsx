@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import video from '../../loginAssets/video.mp4';
@@ -14,19 +14,46 @@ const Login = () => {
     // useState to store inputs
     const [loginUsername, setLoginUserName] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
+    const navigateTo = useNavigate();
+
+    //login error message
+    const [loginStatus, setLoginStatus] = useState('');
+    const [statusHolder, setSetSatatusHolder] = useState('message');
 
 
     // onCLick let us get what user has input
-    const loginUser = () => {
-        event.preventDefault();
+    const loginUser = (e) => {
+        e.preventDefault();
 
         axios.post('http://localhost:3002/', {
             LoginUsername: loginUsername,
             LoginPassword: loginPassword,
         })
-        .then((response) => {
-            console.log(response);
-        })
+            .then((response) => {
+                if (response.data.message || loginUsername == '' || loginPassword == '') {
+                    navigateTo('/');
+                    setLoginStatus(`Credentials don't exist`);
+                }
+                else {
+                    navigateTo('/dashboard');
+                }
+            })
+    }
+
+    useEffect(() => {
+        if (loginStatus !== '') {
+            setSetSatatusHolder('showMessage');
+            setTimeout(() => {
+                setSetSatatusHolder('messages');
+            }, 4000);
+        }
+    }, [loginStatus]);
+
+
+    // clear form onSubmit
+    const onSubmit = () => {
+        setLoginUserName('');
+        setLoginPassword('');
     }
 
 
@@ -50,14 +77,14 @@ const Login = () => {
                         </div>
                     </div>
 
-                    <div className='formDiv flex'>
+                    <div className='formDiv flex' >
                         <div className='headerDiv'>
                             <img src={logo} alt='Logo Image' />
                             <h3>Welcome Back!</h3>
                         </div>
 
-                        <form className='form grid' action=''>
-                            <span className='showMessage'>Login status will go here</span>
+                        <form className='form grid' action='' onSubmit={onSubmit}>
+                            <span className={statusHolder}>{loginStatus}</span>
                             <div className='inputDiv'>
                                 <label htmlFor='username'>Username</label>
                                 <div className='input flex'>
