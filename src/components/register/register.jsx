@@ -18,6 +18,10 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const navigateTo = useNavigate();
 
+    // register error msg
+    const [registerStatus, setRegisterStatus] = useState();
+    const [statusHolder, setSetSatatusHolder] = useState('message');
+
     // onCLick let us get what user has input
     const createUser = (e) => {
         e.preventDefault();
@@ -105,11 +109,6 @@ const Register = () => {
                                 <span>Register</span>
                                 <AiOutlineSwapRight className='icon' />
                             </button>
-
-                            {/* <span className='forgotPassword'>
-                                Forgot your password
-                                <a href='#'>Click here</a>
-                            </span> */}
                         </form>
                     </div>
                 </div>
